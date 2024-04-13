@@ -4,7 +4,7 @@
   "authorizationParams": {
     "audience": "https://auth.lnco.in/"
   },
-  "apiUri": "https://firebase-lnco.vercel.app/",
+  "apiUri": "https://firebase-lnco.vercel.app",
   "appUri": "http://localhost:4200",
   "errorPath": "/error"
 }
