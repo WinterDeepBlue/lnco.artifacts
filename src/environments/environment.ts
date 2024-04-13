@@ -19,7 +19,7 @@ const { domain, clientId, authorizationParams: { audience }, apiUri, errorPath }
 
 export const environment = {
     production: true,
-    apiUri: process.env['APIURI'], // need to disable as http intercepter get to be in place.
+    apiUri: apiUri, // need to disable as http intercepter get to be in place.
     auth: {
         domain,
         clientId,
