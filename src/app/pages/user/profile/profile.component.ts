@@ -15,6 +15,7 @@ import { formGroupValidator } from '@lib/utils/validators/generic.validator';
 import { Subscription } from 'rxjs';
 import { BaseIdentityFormData } from './identity.i';
 import { UserMetaFormMapper } from './usermeta.mapper';
+import { NavigationEnd, Router } from '@angular/router';
 
 const VALIDATION_MESSAGES = {
     email: {
@@ -63,9 +64,15 @@ export class ProfileComponent {
         @Inject(DOCUMENT) private doc: Document,
         public bareDialog: Dialog,
         private _formBuilder: FormBuilder,
+        private readonly router: Router,
     ) {}
 
     ngOnInit(): void {
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top of the page
+            }
+        });
         this.details_form = this._formBuilder.group(
             {
                 username: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^[a-zA-Z0-9_]+$/)]],
